@@ -1,5 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-body{
-    margin:0px;
-    font-family: 'Roboto', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+body {
+  margin: 0px;
+  font-family: "Roboto", sans-serif;
+}
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .left-section {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    border: 1px solid #eee;
+  }
+  .right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
 }
