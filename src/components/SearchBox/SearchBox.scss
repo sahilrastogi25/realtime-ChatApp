@@ -1,22 +1,22 @@
-.search{
-    min-height: 49px;
-    background: #f6f6f6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    .icon{
-        position: absolute;
-        left:30px;
-        color:#919191;
-        font-size: 14px;
-    }
-    input{
-        width: 95%;
-        height: 30px;
-        border: none;
-        border-radius: 20px;
-        padding-left: 50px;
-        outline: none;
-    }
+.search {
+  min-height: 49px;
+  background: #f6f6f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  .icon {
+    position: absolute;
+    left: 30px;
+    color: #919191;
+    font-size: 14px;
+  }
+  input {
+    width: 85%;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    padding-left: 50px;
+    outline: none;
+  }
 }

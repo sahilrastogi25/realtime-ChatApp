@@ -13,7 +13,7 @@ export const ChatListing = () => {
         </div>
         <div className="card-detail">
           <h4 className="title">User 1</h4>
-          <p className="desc">Hi, how's it going?</p>
+          <p className="desc">this is a message!</p>
         </div>
         <div className="time">10:20 PM</div>
         <div className="action-btn">

@@ -1,0 +1,30 @@
+.chat-form {
+  background-color: #ededed;
+  min-height: 59px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .icon-block {
+    padding: 0 15px;
+    font-size: 25px;
+    color: rgba(0, 0, 0, 0.507);
+    opacity: 0.6;
+    &.active {
+      color: #46c756;
+    }
+    &:hover {
+      opacity: 0.9;
+      cursor: pointer;
+    }
+  }
+  .chat-input {
+    flex: 1;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    padding: 0 20px;
+    outline: none;
+    font-size: 16px;
+    color: #000;
+  }
+}
