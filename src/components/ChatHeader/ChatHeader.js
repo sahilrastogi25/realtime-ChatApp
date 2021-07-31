@@ -1,18 +1,25 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
+import { faEllipsisV, faUser } from "@fortawesome/free-solid-svg-icons";
+import { formatDate } from "./../../utils/helper";
 import "./ChatHeader.scss";
-export const ChatHeader = () => {
+export const ChatHeader = ({ friendInfo }) => {
+  const { isOnline, profileImg, name, updatedAt } = friendInfo;
   return (
     <div className="chat-header">
       <div className="img-container">
-        <img
-          src="https://i.pinimg.com/originals/8d/ec/f9/8decf9caed777b8d0d698e01270ce308.png"
-          alt="user-img"
-        />
+        {profileImg ? (
+          <img alt="profile-img" src={profileImg} />
+        ) : (
+          <FontAwesomeIcon className="icon-block" icon={faUser} />
+        )}
       </div>
       <div className="card-detail">
-        <h4 className="title">User1</h4>
-        <p className="desc">Online</p>
+        <h4 className="title">{name ? name : ""}</h4>
+        <p className="desc">
+          {isOnline
+            ? "Online"
+            : `Last seen ${updatedAt ? formatDate(updatedAt) : ""}`}
+        </p>
       </div>
       <div className="action-items">
         <FontAwesomeIcon className="icon-block" icon={faEllipsisV} />

@@ -1,25 +1,53 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faUser } from "@fortawesome/free-solid-svg-icons";
 import "./ChatListing.scss";
-export const ChatListing = () => {
+import { shortFormatTime } from "./../../utils/helper";
+import { NavLink } from "react-router-dom";
+export const ChatListing = ({ friendsList }) => {
+  console.log(friendsList);
+  const renderRecentMsg = (data) => {
+    let msg = "";
+    if (data.recentMsg && data.recentMsg.msg) {
+      if (data.recentMsg.msg.type === "message") {
+        msg = data.recentMsg.msg.value;
+      } else if (data.recentMsg.msg.type === "file") {
+        msg = "Media shared";
+      }
+      // else if (data.recentMsg.msg.type === "typing") {
+      //   msg = <i style={{ color: "#a7a7a7" }}>typing</i>;
+      // }
+      else {
+        msg = "";
+      }
+    }
+    return msg;
+  };
   return (
     <div className="chat-cards-listing">
-      <div className="card">
-        <div className="img-container">
-          <img
-            src="https://i.pinimg.com/originals/8d/ec/f9/8decf9caed777b8d0d698e01270ce308.png"
-            alt="user-img"
-          />
-        </div>
-        <div className="card-detail">
-          <h4 className="title">User 1</h4>
-          <p className="desc">this is a message!</p>
-        </div>
-        <div className="time">10:20 PM</div>
-        <div className="action-btn">
-          <FontAwesomeIcon icon={faChevronDown} />
-        </div>
-      </div>
+      {Object.keys(friendsList).map((key) => (
+        <NavLink key={key} className="note-card" to={`/${key}`}>
+          <div className="card">
+            <div className="img-container">
+              {friendsList[key].profileImg ? (
+                <img alt="profile-img" src={friendsList[key].profileImg} />
+              ) : (
+                <FontAwesomeIcon className="icon-block" icon={faUser} />
+              )}
+            </div>
+            <div className="card-detail">
+              <h4 className="title">{friendsList[key].name}</h4>
+              <p className="desc">{renderRecentMsg(friendsList[key])}</p>
+            </div>
+            <div className="time">
+              {friendsList[key].recentMsg &&
+                shortFormatTime(friendsList[key].recentMsg.time)}
+            </div>
+            <div className="action-btn">
+              <FontAwesomeIcon icon={faChevronDown} />
+            </div>
+          </div>
+        </NavLink>
+      ))}
     </div>
   );
 };
