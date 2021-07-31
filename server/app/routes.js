@@ -6,8 +6,9 @@ const {
   audioUpload,
   imageMsgFileUpload,
 } = require("./helper");
+
 router.post("/api/login", userProfileUpload, controller.userLogin);
-router.get("/api/user-list/:id", controller.getUsersList);
+router.get("/api/users-list/:id", controller.getUsersList);
 router.get("/api/user/:id", controller.getUserInfo);
 router.post("/api/chats", controller.getUserChats);
 router.get("/api/user/is-offline/:id", controller.checkIfUserOffline);

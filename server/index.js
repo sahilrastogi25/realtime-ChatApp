@@ -9,7 +9,11 @@ const Routes = require("./app/routes");
 
 app.use([express.json(), cors(), express.static("uploads"), Routes]);
 
-const io = (module.exports.io = require("socket.io")(server));
+const io = (module.exports.io = require("socket.io")(server, {
+  cors: {
+    origin: "*",
+  },
+}));
 const socketManager = require("./app/socketManager/socketManager.js");
 
 io.on("connection", socketManager);
